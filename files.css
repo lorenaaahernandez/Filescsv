@@ -1,0 +1,61 @@
+
+
+body{background-color: rgb(233, 204, 161);}
+table{border: thin solid;}
+th,td{
+    border: thin solid;
+    padding: 12px 50px;
+}
+thead th{ background-color:burlywood;
+                color:whitesmoke;
+}
+
+tbody td{ background-color:rgb(230, 148, 205);
+color:whitesmoke;
+
+}
+h1{
+font-size: italic;
+color: azure;
+text-transform: capitalize;
+text-transform: uppercase;
+text-align:center;
+color: brown;
+    background-color: burlywood;
+
+}
+h2{
+    font-size: italic;
+    color: azure;
+    text-transform: capitalize;
+    text-transform: uppercase;
+    text-align:center;
+    color: rgb(31, 131, 7);
+        background-color: burlywood;
+}
+
+
+#drop_zone {
+  border: 2px dashed green;
+  border-radius: 15px;
+  padding: 55px;
+  text-align: center;
+  color: #bbb;
+}
+
+  button{
+ margin: 12px;
+ padding: 12px 5px;
+ background-color: rgb(241, 219, 117);
+ color: lightslategray;
+ font-size: 12px;
+ text-align: center;
+ top: 75px;
+ 
+ 
+ text-transform: uppercase;
+ text-decoration: none;
+ letter-spacing: 2PX;
+ outline: none;
+}
+ 

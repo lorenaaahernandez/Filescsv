@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" type="text/css" href="files.css">
+    <title>ARCHIVOS csv</title>
+  <style>
+      body{background-color: rgb(236, 223, 195);}
+     
+  </style>
+
+</head>
+
+<body class="tablas">
+  
+<form action="../../form-result.php" method="post" enctype="multipart/form-data" target="_blank">
+    
+    
+  <h2>CARGA DE ARCHIVOS CSV</h2>
+
+  <div id="main">
+    <p >
+      <input type="file" id="files" name="files[]" accept=".csv" multiple onchange="return validarExt()"/>
+      <div id="visorArchivo">
+      
+      </div>
+    </p>
+
+</form> 
+
+
+    
+    <button onclick="location.href='http://127.0.0.1:5500/demo/Evaluacion/repertorio.html'">Agregar al repertorio</button>
+
+
+
+
+    <script>
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // descripcion del archivo
+        var output = [];
+        for (var i = 0, f; f = files[i]; i++) {
+    
+          output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                      f.size, ' bytes, last modified: ',
+                      f.lastModifiedDate.toLocaleDateString(), '</li>');
+        }
+        document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+      }
+
+      document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+    
+  
+  </div>
+  <br>
+
+  <div id="drop_zone" class="dropdownfiles">Arrastra y suelta los archivos aquí
+      <br>
+    
+  </div>
+  <output id="list"></output>  
+  
+  <script>
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+  
+      var files = evt.dataTransfer.files; 
+      var output = [];
+      for (var i = 0, f; f = files[i]; i++) {
+        output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate.toLocaleDateString(), '</li>');
+      }
+      document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    }
+  
+    function handleDragOver(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      evt.dataTransfer.dropEffect = 'copy'; 
+    }
+    
+    var dropZone = document.getElementById('drop_zone');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+  </script>
+
+  </body>
+</html>
+
+<script type="text/javascript" src="files.js"></script>
+
+    
